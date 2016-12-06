@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xecee1bdac21c5d57af5bec0ea552bd2fa0203a917d474b3816a71ecbc7b2b967");
+uint256 hashGenesisBlock("0x710843169c08e5c686d5bc2c613aa66802b335936f44a2dbb3afab41e37ed209");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // FirstCoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1087,15 +1087,17 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 0 * COIN;
+    int64 nSubsidy = 1;
 	
     if(nHeight == 2)  
     {
-        nSubsidy = 110000000 * COIN;
+        nSubsidy = 109999999 * COIN;
     }
-
-    // Subsidy is cut in half every 2.5M blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 25000000); // FirstCoin: 2.5M blocks in ~4 years
+	
+	if (nHeight > COIN + 1) 
+	{
+		nSubsidy = 0;
+	}
 
     return nSubsidy + nFees;
 }
@@ -2751,7 +2753,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xb2;
         pchMessageStart[2] = 0xa4;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xecee1bdac21c5d57af5bec0ea552bd2fa0203a917d474b3816a71ecbc7b2b967");
+        hashGenesisBlock = uint256("0x710843169c08e5c686d5bc2c613aa66802b335936f44a2dbb3afab41e37ed209");
     }
 
     //
@@ -2784,7 +2786,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "NY Times 26/Nov/2016 FIDEL CASTRO, CUBAN LEADER WHO DEFIED U.S., DIES AT 90";
+        const char* pszTimestamp = "NY Times 05/Dec/2016 Alternate Route for Dakota Pipeline to Be Explored";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2796,14 +2798,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1480200006;
+        block.nTime    = 1480952681;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 552336;
+        block.nNonce   = 718476;
 
         if (fTestNet)
         {
-            block.nTime    = 1480200006;
-            block.nNonce   = 552336;
+            block.nTime    = 1480952681;
+            block.nNonce   = 718476;
         }
 
         //// debug print
@@ -2811,7 +2813,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x898b86b3b66b9b44a938b7f71828985d96bf84e8be4343c8d3e5b8a9f5783316"));
+        assert(block.hashMerkleRoot == uint256("0x1a409cff12391dc20c244e45ebf4084d7be1ebfc199ae5748af43f8c530bb57d"));
 		
         block.print();
         assert(hash == hashGenesisBlock);

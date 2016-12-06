@@ -50,10 +50,10 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
   HiddenServiceDir /var/lib/tor/firstcoin-service/
-  HiddenServicePort 10666 127.0.0.1:10666
+  HiddenServicePort 10667 127.0.0.1:10667
 
 The directory can be different of course, but (both) port numbers should be equal to
-your firstcoind's P2P listen port (10666 by default).
+your firstcoind's P2P listen port (10667 by default).
 
 -externalip=X   You can tell firstcoin about its publicly reachable address using
                 this option, and this can be a .onion address. Given the above
@@ -83,7 +83,7 @@ specify:
 
   ./firstcoind ... -discover
 
-and open port 10666 on your firewall (or use -upnp).
+and open port 10667 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:

@@ -35,18 +35,20 @@ namespace Checkpoints
     // + Contains no strange transactions
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-		(0, uint256("0xecee1bdac21c5d57af5bec0ea552bd2fa0203a917d474b3816a71ecbc7b2b967"))
-		(10, uint256("0x8b468dd7806a207830e19ff356d3bd8465925329787a5893a68257ce9a34f302"))
-		(24, uint256("0xa04c88401be8c6996cb0e778461a45daa861044edf8aeda697b6ac926eb004d9"))
-		(58, uint256("0x22d3b15b20c820496c6b0cb213c8d2274085090f10637e3b84ae802f38d2af54"))
-		(79, uint256("0x4f3bf057471c1b6cf9d0c71900620154d6cc283e1d1ec61a22f36dd23a7deb5e"))
-		(87, uint256("0x3a471e774273b3383ba99f08dd3556bb1779188136fa55e7f7efa44aded8b5cb"))
-		(145, uint256("0x530487d89807bb0810b42f9ec5b55d923ce42ed503ac7b69661b7b03cf3e90dc"))
+		(0, uint256("0x710843169c08e5c686d5bc2c613aa66802b335936f44a2dbb3afab41e37ed209"))
+		(8, uint256("0x9a953800562839387f6bcbf0003f979d3921a723e01a16f56f07e6e0c59c9d15"))
+		(13, uint256("0xd12fbb431ea9aac42d7c92ff001033d8e12dccd0168a057eb1f88f948ecdcf79"))
+		(23, uint256("0x1f45942043742ae468486d81ffc531b211f11869d223d3a7d00e1be9828c0bae"))
+		(25, uint256("0x767b561e8ca68ce441ee569412640530a48ac45d536f46077b705fde648c7061"))
+		(31, uint256("0x0e4fa3d2432875e7ffae58d68756a7ead1c2ffd3c5f2f9051964cca22977a33b"))
+		(42, uint256("0xe741ed389b400df0f27adadddd8413865b4bbb0076fa915a907d002f5405f608"))
+		(47, uint256("0xeb3593b862d1464e6690c262acab51272da22b4b9b74c29733fa0fd8cf3fc3f7"))
+		(51, uint256("0xdb836e411417eb332105f13a8b7397f80975687883b66abd924f0c6196ee069a"))
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
-        1480659851, // * UNIX timestamp of last checkpoint block
-        278,   // * total number of transactions between genesis and last checkpoint
+        1480964454, // * UNIX timestamp of last checkpoint block
+        53,   // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         1000.0     // * estimated number of transactions per day after checkpoint
     };
